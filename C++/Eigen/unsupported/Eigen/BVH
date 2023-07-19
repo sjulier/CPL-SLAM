@@ -10,9 +10,9 @@
 #ifndef EIGEN_BVH_MODULE_H
 #define EIGEN_BVH_MODULE_H
 
-#include <Eigen/Core>
-#include <Eigen/Geometry>
-#include <Eigen/StdVector>
+#include "../../Eigen/Core"
+#include "../../Eigen/Geometry"
+#include "../../Eigen/StdVector"
 #include <algorithm>
 #include <queue>
 
@@ -87,8 +87,10 @@ namespace Eigen {
 
 //@{
 
+// IWYU pragma: begin_exports
 #include "src/BVH/BVAlgorithms.h"
 #include "src/BVH/KdBVH.h"
+// IWYU pragma: end_exports
 
 //@}
 
