@@ -4,8 +4,8 @@ cmake_minimum_required(VERSION 3.1)
 
 # PROJECT CONFIGURATION
 project(SESync LANGUAGES C CXX VERSION 1.0.0)
-set(CMAKE_CXX_STANDARD 14)
-set(CMAKE_CXX_STANDARD_REQUIRED ON) # We require C++ 14
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON) # We require C++ 17w
 
 
 # Set build type to 'RelWithDebInfo' if one was not specified by the user
@@ -55,6 +55,7 @@ message(STATUS "Eigen3 include directory: ${EIGEN3_INCLUDE_DIR}\n")
 
 # FIND ADDITIONAL LIBRARIES
 # These next operations make use of the .cmake files shipped with Eigen3
+find_package(Eigen3 REQUIRED)
 find_package(SPQR REQUIRED)
 find_package(Cholmod REQUIRED)
 find_package(BLAS REQUIRED)

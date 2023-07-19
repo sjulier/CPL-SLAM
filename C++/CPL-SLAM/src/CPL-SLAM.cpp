@@ -174,11 +174,11 @@ CPL_SLAMResult CPL_SLAM(CPL_SLAMProblem &problem, const CPL_SLAMOpts &options,
       };
 
   // Preconditioning operator (optional)
-  std::experimental::optional<Optimization::Smooth::LinearOperator<
+  std::optional<Optimization::Smooth::LinearOperator<
       ComplexMatrix, ComplexMatrix, ComplexMatrix>>
       precon;
   if (options.preconditioner == Preconditioner::None)
-    precon = std::experimental::nullopt;
+    precon = std::nullopt;
   else {
     Optimization::Smooth::LinearOperator<ComplexMatrix, ComplexMatrix,
                                          ComplexMatrix>

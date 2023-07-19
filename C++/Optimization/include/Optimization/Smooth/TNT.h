@@ -19,7 +19,7 @@
 
 #include <algorithm>
 #include <cmath>
-#include <experimental/optional>
+#include <optional>
 #include <functional>
 #include <iostream>
 #include <limits>
@@ -99,7 +99,7 @@ Tangent
 STPCG(const Variable &X, const Tangent &grad,
       const LinearOperator<Variable, Tangent, Args...> &Hess,
       const RiemannianMetric<Variable, Tangent, Scalar, Args...> &metric,
-      const std::experimental::optional<
+      const std::optional<
           LinearOperator<Variable, Tangent, Args...>> &precon,
       Scalar &update_step_M_norm, size_t &num_iterations, Scalar Delta,
       Args &... args, size_t max_iterations = 1000, Scalar kappa_fgr = .1,
@@ -379,13 +379,13 @@ TNT(const Objective<Variable, Scalar, Args...> &f,
     const RiemannianMetric<Variable, Tangent, Scalar, Args...> &metric,
     const Retraction<Variable, Tangent, Args...> &retract, const Variable &x0,
     Args &... args,
-    const std::experimental::optional<
+    const std::optional<
         LinearOperator<Variable, Tangent, Args...>> &precon =
-        std::experimental::nullopt,
+        std::nullopt,
     const TNTParams<Scalar> &params = TNTParams<Scalar>(),
-    const std::experimental::optional<
+    const std::optional<
         TNTUserFunction<Variable, Tangent, Scalar, Args...>> &user_function =
-        std::experimental::nullopt) {
+        std::nullopt) {
   /// Declare and initialize some useful variables
 
   // Square root of machine precision for type Scalar
@@ -718,13 +718,13 @@ TNT(const Objective<Variable, Scalar, Args...> &f,
     const RiemannianMetric<Variable, Tangent, Scalar, Args...> &metric,
     const Retraction<Variable, Tangent, Args...> &retract, const Variable &x0,
     Args &... args,
-    const std::experimental::optional<
+    const std::optional<
         LinearOperator<Variable, Tangent, Args...>> &precon =
-        std::experimental::nullopt,
+        std::nullopt,
     const TNTParams<Scalar> &params = TNTParams<Scalar>(),
-    const std::experimental::optional<
+    const std::optional<
         TNTUserFunction<Variable, Tangent, Scalar, Args...>> &user_function =
-        std::experimental::nullopt) {
+        std::nullopt) {
 
   // Construct a QuadraticModel function from the passed VectorField and
   // HessianConstructor functions
@@ -768,12 +768,12 @@ TNTResult<Vector, Scalar> EuclideanTNT(
     const Objective<Vector, Scalar, Args...> &f,
     const EuclideanQuadraticModel<Vector, Args...> &QM, const Vector &x0,
     Args &... args,
-    const std::experimental::optional<EuclideanLinearOperator<Vector, Args...>>
-        &precon = std::experimental::nullopt,
+    const std::optional<EuclideanLinearOperator<Vector, Args...>>
+        &precon = std::nullopt,
     const TNTParams<Scalar> &params = TNTParams<Scalar>(),
-    const std::experimental::optional<
+    const std::optional<
         EuclideanTNTUserFunction<Vector, Scalar, Args...>> &user_function =
-        std::experimental::nullopt) {
+        std::nullopt) {
 
   /// Run TNT algorithm using these Euclidean operators
   return TNT<Vector, Vector, Scalar, Args...>(
@@ -792,12 +792,12 @@ TNTResult<Vector, Scalar> EuclideanTNT(
     const EuclideanLinearOperatorConstructor<Vector, Args...>
         &HessianConstructor,
     const Vector &x0, Args &... args,
-    const std::experimental::optional<EuclideanLinearOperator<Vector, Args...>>
-        &precon = std::experimental::nullopt,
+    const std::optional<EuclideanLinearOperator<Vector, Args...>>
+        &precon = std::nullopt,
     const TNTParams<Scalar> &params = TNTParams<Scalar>(),
-    const std::experimental::optional<
+    const std::optional<
         EuclideanTNTUserFunction<Vector, Scalar, Args...>> &user_function =
-        std::experimental::nullopt) {
+        std::nullopt) {
 
   EuclideanQuadraticModel<Vector, Args...> QM =
       [&nabla_f, &HessianConstructor](

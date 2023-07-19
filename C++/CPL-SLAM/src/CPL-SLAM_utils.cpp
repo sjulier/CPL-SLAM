@@ -11,6 +11,12 @@
 
 namespace CPL_SLAM {
 
+void sincos(const double x, double *s, double *c)
+{
+  *s = sin(x);
+  *c = cos(x);
+}  
+  
 measurements_t read_g2o_file(const std::string &filename) {
   measurements_t measurements;
 

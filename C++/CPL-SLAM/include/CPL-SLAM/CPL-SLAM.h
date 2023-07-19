@@ -68,7 +68,7 @@ struct CPL_SLAMOpts {
   /** An optional user-supplied function that can be used to instrument/monitor
    * the performance of the internal Riemannian truncated-Newton trust-region
    * optimization algorithm as it runs. */
-  std::experimental::optional<CPL_SLAMTNTUserFunction> user_function;
+  std::optional<CPL_SLAMTNTUserFunction> user_function;
 
   /// CPL-SYNC PARAMETERS
 
